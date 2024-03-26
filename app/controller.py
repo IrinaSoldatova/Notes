@@ -16,3 +16,11 @@ class NoteController:
                 self.model.add_note(title, body)
             elif choice == '2':
                 self.model.list_notes()
+            elif choice == '3':
+                note_id = int(self.view.get_input("Enter the ID of the note you want to edit: "))
+                new_title = self.view.get_input("Enter the new title: ")
+                new_body = self.view.get_input("Enter the new body: ")
+                self.model.edit_note(note_id, new_title, new_body)
+            elif choice == '4':
+                note_id = int(self.view.get_input("Enter the ID of the note you want to delete: "))
+                self.model.delete_note(note_id)

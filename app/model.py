@@ -36,3 +36,32 @@ class NoteModel:
     def list_notes(self):
         for note in self.notes:
             print(f"ID: {note['id']}, Title: {note['title']}")
+
+    def edit_note(self, note_id, new_title, new_body):
+        note_found = False
+        for note in self.notes:
+            if note['id'] == note_id:
+                note['title'] = new_title
+                note['body'] = new_body
+                note['date and time'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                note_found = True
+                break
+
+        if not note_found:
+            print("Note not found.")
+        else:
+            self.save_notes()
+            print("Change saved")
+
+    def delete_note(self, note_id):
+        note_found = False
+        for note in self.notes:
+            if note['id'] == note_id:
+                self.notes.remove(note)
+                self.save_notes()
+                print("Note deleted")
+                note_found = True
+                break
+
+        if not note_found:
+            print("Note not found")
