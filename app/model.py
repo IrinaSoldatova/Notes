@@ -32,3 +32,7 @@ class NoteModel:
         self.notes.append(new_note)
         self.save_notes()
         print("Note saved")
+
+    def list_notes(self):
+        for note in self.notes:
+            print(f"ID: {note['id']}, Title: {note['title']}")
