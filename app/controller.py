@@ -24,3 +24,14 @@ class NoteController:
             elif choice == '4':
                 note_id = int(self.view.get_input("Enter the ID of the note you want to delete: "))
                 self.model.delete_note(note_id)
+            elif choice == '5':
+                date = self.view.get_input("Enter the date in format YYYY-MM-DD: ")
+                self.model.filter_notes(date)
+            elif choice == '6':
+                note_id = int(self.view.get_input("Enter the ID of the note you want to read: "))
+                self.model.read_note(note_id)
+            elif choice == '7':
+                print("Goodbye!")
+                break
+            else:
+                print("Invalid choice. Please try again.")

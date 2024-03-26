@@ -65,3 +65,20 @@ class NoteModel:
 
         if not note_found:
             print("Note not found")
+
+    def filter_notes(self, date):
+        filtered_notes = [note for note in self.notes if note['date and time'].split()[0] == date]
+        if filtered_notes:
+            for note in filtered_notes:
+                print(f"ID: {note['id']}, Title: {note['title']}")
+        else:
+            print("No notes found for this date.")
+
+    def read_note(self, note_id):
+        for note in self.notes:
+            if note['id'] == note_id:
+                print(
+                    f"ID: {note['id']}\nTitle: {note['title']}\nBody: {note['body']}\nDate and Time: {note['date and time']}")
+                break
+        else:
+            print("Note not found.")
